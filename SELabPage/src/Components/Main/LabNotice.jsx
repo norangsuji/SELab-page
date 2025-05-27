@@ -82,6 +82,12 @@ const StyledFileIcon = styled(FaFileAlt)`
 const MessageSpan = styled.span`
   font-weight: 700;
 
+  @media (max-width: 1024px) {
+    font-size: 0.85rem;
+    line-height: 1.3rem;
+    margin-top: 0.15rem;
+  }
+
   @media (max-width: 768px) {
     display: block;
     margin-top: 0.2rem;
@@ -139,26 +145,9 @@ export default function LabNotice() {
 
 const Wrapper = styled.div`
   width: 100%;
-  padding: 0rem 4rem 4rem 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  @media (max-width: 1024px) {
-    padding: 0rem 0.1rem 2rem 0.1rem;
-  }
-
-  @media (max-width: 768px) {
-    padding: 0rem 2.5rem 2.5rem 2.5rem;
-  }
-
-  @media (max-width: 480px) {
-    padding: 0rem 0.1rem 2rem 0.1rem;
-  }
-
-  @media (max-width: 320px) {
-    padding: 0rem 0.05rem 1.5rem 0.05rem;
-  }
 `;
 
 const Title = styled.h2`
@@ -168,13 +157,23 @@ const Title = styled.h2`
   margin-bottom: 2rem;
   text-align: center;
 
+  @media (max-width: 1024px) {
+    font-size: 2.2rem;
+    margin-bottom: 1.8rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
   @media (max-width: 480px) {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     margin-bottom: 1.2rem;
   }
 
   @media (max-width: 320px) {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
   }
 `;
@@ -184,6 +183,14 @@ const List = styled.ul`
   flex-direction: column;
   gap: 1.5rem;
   width: 90%;
+
+  @media (max-width: 1024px) {
+    gap: 1.4rem;
+  }
+
+  @media (max-width: 768px) {
+    gap: 1.2rem;
+  }
 
   @media (max-width: 480px) {
     gap: 1rem;
@@ -210,6 +217,11 @@ const IconWrapper = styled.div`
   align-items: center;
   margin-right: 1rem;
 
+  @media (max-width: 1024px) {
+    padding: 0.6rem;
+    margin-right: 0.9rem;
+  }
+
   @media (max-width: 768px) {
     padding: 0.4rem;
     margin-right: 0.8rem;
@@ -232,21 +244,25 @@ const Divider = styled.div`
   background-color: #f5f5f5;
   margin: 0 0.5rem;
 
-  @media (max-width: 480px) {
-    margin: 0 0.3rem;
-  }
-
-  @media (max-width: 320px) {
-    margin: 0 0.1rem;
+  @media (max-width: 1024px) {
+    margin: 0 0.4rem;
   }
 
   @media (max-width: 768px) {
     display: none;
   }
+
+  @media (max-width: 480px) {
+    margin: 0 0.3rem;
+  }
+
+  @media (max-width: 320px) {
+    margin: 0 0.2rem;
+  }
 `;
 
 const NoticeText = styled.div`
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   line-height: 2rem;
   color: #f5f5f5;
   font-weight: 500;
@@ -255,13 +271,13 @@ const NoticeText = styled.div`
 
   @media (max-width: 1024px) {
     font-size: 1rem;
-    line-height: 1.2rem;
+    line-height: 1.6rem;
     margin-bottom: 0.4rem;
   }
 
   @media (max-width: 768px) {
-    font-size: 0.95rem;
-    line-height: 1.2rem;
+    font-size: 0.8rem;
+    line-height: 1.4rem;
     margin-bottom: 0.4rem;
   }
 

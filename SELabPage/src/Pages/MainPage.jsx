@@ -38,12 +38,17 @@ export default MainPage;
 
 const Container = styled.div`
   width: 100%;
-  padding: 0.7rem 10rem 3rem 10rem;
+  padding: 0.7rem 15rem 16rem 15rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 3rem;
+
+  @media (max-width: 1024px) {
+    padding: 0.3rem 8rem 9rem 8rem;
+    gap: 2.3rem;
+  }
 
   @media (max-width: 768px) {
     padding: 0.3rem 5rem 6rem 5rem;
@@ -118,7 +123,7 @@ const IntroductionBox = styled.div`
     margin-bottom: 0.5rem;
 
     @media (max-width: 1024px) {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       line-height: 1.8rem;
       margin-bottom: 0.4rem;
     }

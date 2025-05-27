@@ -68,11 +68,11 @@ const NavItemLink = styled(Link)`
   }
 
   @media (max-width: 480px) {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
   }
 
   @media (max-width: 320px) {
-    font-size: 0.75rem;
+    font-size: 0.6rem;
   }
 `;
 
@@ -108,10 +108,14 @@ const NavbarContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 10rem;
+  padding: 2rem 15rem;
+
+  @media (max-width: 1024px) {
+    padding: 1.8rem 9rem;
+  }
 
   @media (max-width: 768px) {
-    padding: 1.5rem 5rem;
+    padding: 1.5rem 7rem;
   }
 
   @media (max-width: 480px) {
@@ -137,11 +141,11 @@ const Logo = styled(Link)`
   }
 
   @media (max-width: 480px) {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   @media (max-width: 320px) {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 `;
 
