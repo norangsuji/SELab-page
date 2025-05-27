@@ -63,6 +63,10 @@ const NavItemLink = styled(Link)`
     color: #41fb5a;
   }
 
+  @media (max-width: 1024px) {
+    font-size: 1.3rem;
+  }
+
   @media (max-width: 768px) {
     font-size: 0.95rem;
   }
@@ -154,6 +158,10 @@ const NavMenu = styled.div`
   flex-wrap: wrap;
   align-items: center;
   gap: 4rem;
+
+  @media (max-width: 1024px) {
+    gap: 2.5rem;
+  }
 
   @media (max-width: 768px) {
     gap: 1.8rem;
