@@ -96,3 +96,26 @@ const Title = styled.div`
     font-size: 1.2rem;
   }
 `;
+
+const Description = styled.div`
+  font-size: 1.2rem;
+  color: #f5f5f5;
+  text-align: center;
+  max-width: 800px;
+
+  @media (max-width: 1024px) {
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 0.8rem;
+  }
+`;
