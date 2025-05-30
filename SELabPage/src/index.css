@@ -81,10 +81,6 @@ button:hover {
   border-color: #41fb5a;
   color: #41fb5a;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
 
 /* 반응형 대응 예시 */
 @media screen and (max-width: 768px) {
