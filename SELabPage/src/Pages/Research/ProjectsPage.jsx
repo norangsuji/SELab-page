@@ -1,8 +1,36 @@
 import { Routes, Route } from "react-router-dom";
 import styled from "@emotion/styled";
 import Navbar from "../../Components/Default/NavBar";
+import ProjectList from "../../Components/Research/ProjectList";
 
 function ProjectsPage() {
+  const dummyProjects = [
+    {
+      year: "2022",
+      title: "데이터 융합 인재 양성 사업",
+      period: "2022.09.01~2029.02.28",
+      agency: "과학기술정보통신부/원천기술개발사업",
+    },
+    {
+      year: "2020",
+      title: "딥러닝 알고리즘 기반 소프트웨어 버그 자동 정정 연구",
+      period: "2020.03.01~2023.02.28",
+      agency: "과학기술정보통신부/중견연구자지원사업",
+    },
+    {
+      year: "2020",
+      title: "진화론적 방법에 기반한 소프트웨어 버그 자동 정정 연구",
+      period: "2020.03.01~2023.02.28",
+      agency: "과학기술정보통신부/중견연구자지원사업",
+    },
+    {
+      year: "2014",
+      title: "상시 모니터링 연동 의미기반 테스트 지원 기술",
+      period: "2014.07.01~2019.06.30",
+      agency: "과학기술정보통신부/차세대정보표준기술개발사업",
+    },
+  ];
+
   return (
     <>
       <Navbar />
@@ -11,6 +39,9 @@ function ProjectsPage() {
           <Title>Project</Title>
           <Description>ISELab에서 진행하는 프로젝트들입니다</Description>
         </TitleBox>
+        <ProjectBox>
+          <ProjectList projects={dummyProjects} />
+        </ProjectBox>
       </Container>
     </>
   );
@@ -117,5 +148,31 @@ const Title = styled.div`
 
   @media (max-width: 320px) {
     font-size: 1.2rem;
+  }
+`;
+
+const ProjectBox = styled.div`
+  width: 100%;
+  padding: 0rem 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (max-width: 1024px) {
+    gap: 0.8rem;
+  }
+
+  @media (max-width: 768px) {
+    gap: 0.6rem;
+  }
+
+  @media (max-width: 480px) {
+    gap: 0.4rem;
+  }
+
+  @media (max-width: 320px) {
+    gap: 0.2rem;
   }
 `;
