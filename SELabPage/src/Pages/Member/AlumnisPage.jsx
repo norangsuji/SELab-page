@@ -70,7 +70,7 @@ const Title = styled.h1`
 `;
 
 const Description = styled.div`
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #ccc;
 `;
 
