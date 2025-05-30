@@ -1,8 +1,34 @@
-import { Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import Navbar from "../../Components/Default/NavBar";
+import AlumnisList from "../../Components/Member/AlumnisList";
 
 function AlumnisPage() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchAlumnis = async () => {
+      const res = await fetch(
+        "https://docs.google.com/spreadsheets/d/1hlC9yX2rlqQsiIbqKKA-MYI7BD1fRmemm6G5YMENSO4/gviz/tq?tqx=out:json&sheet=Alumnis"
+      );
+      const text = await res.text();
+      const json = JSON.parse(text.substring(47).slice(0, -2));
+
+      const alumnis = json.table.rows.slice(1).map((row) => {
+        const cells = row.c;
+        return {
+          name: cells[0]?.v || "",
+          position: cells[1]?.v || "",
+          date: cells[2]?.v || "",
+        };
+      });
+
+      setData(alumnis);
+    };
+
+    fetchAlumnis();
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -11,6 +37,9 @@ function AlumnisPage() {
           <Title>Alumnis</Title>
           <Description>ISELab의 졸업생입니다</Description>
         </TitleBox>
+        <AlumnisBox>
+          <AlumnisList alumnis={data} />
+        </AlumnisBox>
       </Container>
     </>
   );
@@ -18,8 +47,7 @@ function AlumnisPage() {
 
 export default AlumnisPage;
 
-// ======================== 스타일 ========================
-
+// ===== 스타일 =====
 const Container = styled.div`
   width: 100%;
   padding: 0.7rem 15rem 16rem 15rem;
@@ -27,95 +55,26 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 3rem;
-
-  @media (max-width: 1024px) {
-    padding: 0.3rem 8rem 9rem 8rem;
-    gap: 2.3rem;
-  }
-
-  @media (max-width: 768px) {
-    padding: 0.3rem 5rem 6rem 5rem;
-    gap: 2rem;
-  }
-
-  @media (max-width: 480px) {
-    padding: 0.2rem 3rem 4rem 3rem;
-    gap: 1rem;
-  }
-
-  @media (max-width: 320px) {
-    padding: 0.1rem 2rem 3rem 2rem;
-    gap: 0.5rem;
-  }
 `;
 
 const TitleBox = styled.div`
-  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.6rem;
+`;
 
-  @media (max-width: 1024px) {
-    gap: 0.8rem;
-  }
-
-  @media (max-width: 768px) {
-    gap: 0.6rem;
-  }
-
-  @media (max-width: 480px) {
-    gap: 0.4rem;
-  }
-
-  @media (max-width: 320px) {
-    gap: 0.2rem;
-  }
+const Title = styled.h1`
+  font-size: 3rem;
+  color: #f5f5f5;
 `;
 
 const Description = styled.div`
-  font-size: 1.2rem;
-  color: #f5f5f5;
-  text-align: center;
-  max-width: 800px;
-
-  @media (max-width: 1024px) {
-    font-size: 1.1rem;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 0.9rem;
-  }
-
-  @media (max-width: 320px) {
-    font-size: 0.8rem;
-  }
+  font-size: 1rem;
+  color: #ccc;
 `;
 
-const Title = styled.div`
-  font-size: 3rem;
-  font-weight: bold;
-  color: #f5f5f5;
-
-  @media (max-width: 1024px) {
-    font-size: 2rem;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1.8rem;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 1.5rem;
-  }
-
-  @media (max-width: 320px) {
-    font-size: 1.2rem;
-  }
+const AlumnisBox = styled.div`
+  width: 100%;
+  margin-top: 3rem;
 `;
