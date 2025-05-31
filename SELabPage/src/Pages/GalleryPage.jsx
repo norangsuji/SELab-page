@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import styled from "@emotion/styled";
 import Navbar from "../Components/Default/NavBar";
+import ImageList from "../Components/Gallery/ImageList";
 
 function GalleryPage() {
   return (
@@ -11,6 +12,9 @@ function GalleryPage() {
           <Title>Gallery</Title>
           <Description>ISELab의 앨범입니다</Description>
         </TitleBox>
+        <GalleryBox>
+          <ImageList />
+        </GalleryBox>
       </Container>
     </>
   );
@@ -117,5 +121,27 @@ const Title = styled.div`
 
   @media (max-width: 320px) {
     font-size: 1.2rem;
+  }
+`;
+
+const GalleryBox = styled.div`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  @media (max-width: 1024px) {
+    gap: 0.8rem;
+  }
+  @media (max-width: 768px) {
+    gap: 0.6rem;
+  }
+  @media (max-width: 480px) {
+    gap: 0.4rem;
+  }
+  @media (max-width: 320px) {
+    gap: 0.2rem;
   }
 `;
