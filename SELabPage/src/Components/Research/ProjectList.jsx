@@ -26,7 +26,7 @@ export default function ProjectList({ projects }) {
                   <ProjectTitle>{proj.title}</ProjectTitle>
                   <Period>{proj.period}</Period>
                 </FirstRow>
-                <Agency>발주 기관: {proj.agency}</Agency>
+                <Agency>발주기관: {proj.agency}</Agency>
               </ProjectItem>
             ))}
           </ProjectItems>
@@ -48,11 +48,28 @@ const YearTitle = styled.h2`
   font-size: 2.2rem;
   font-weight: bold;
   color: #fff;
+
+  @media (max-width: 1024px) {
+    gap: 1.8rem;
+    font-size: 1.4rem;
+  }
+  @media (max-width: 768px) {
+    gap: 1.4rem;
+    font-size: 1.3rem;
+  }
+  @media (max-width: 480px) {
+    gap: 0.4rem;
+    font-size: 1.2rem;
+  }
+  @media (max-width: 320px) {
+    gap: 0.2rem;
+    font-size: 0.9rem;
+  }
 `;
 
 const Line = styled.div`
   flex: 1;
-  height: 1px;
+  height: 0.0625rem;
   background-color: #666;
 `;
 
@@ -61,6 +78,19 @@ const ProjectItems = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   margin-top: 1rem;
+
+  @media (max-width: 1024px) {
+    margin-top: 0.8rem;
+  }
+  @media (max-width: 768px) {
+    margin-top: 0.6rem;
+  }
+  @media (max-width: 480px) {
+    margin-top: 0.4rem;
+  }
+  @media (max-width: 320px) {
+    margin-top: 0.2rem;
+  }
 `;
 
 const ProjectItem = styled.div`
@@ -71,23 +101,69 @@ const ProjectItem = styled.div`
 
 const FirstRow = styled.div`
   display: flex;
-  align-items: flex-end;
+  flex-direction: row;
+  align-items: center; /* 이거 추가! 왼쪽 정렬 */
   gap: 0.5rem;
-  align-self: stretch;
+
+  @media (max-width: 480px) {
+    display: flex;
+    gap: 0.2rem;
+    flex-direction: column;
+    align-items: flex-start; /* 이거 추가! 왼쪽 정렬 */
+  }
 `;
 
 const ProjectTitle = styled.div`
   font-size: 1.5rem;
   font-weight: 600;
   color: #fff;
+
+  @media (max-width: 1024px) {
+    font-size: 1.4rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+  }
+  @media (max-width: 320px) {
+    font-size: 0.6rem;
+  }
 `;
 
 const Period = styled.div`
   font-size: 1rem;
   color: #bbb;
+
+  @media (max-width: 1024px) {
+    font-size: 0.95rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 0.7rem;
+  }
+  @media (max-width: 320px) {
+    font-size: 0.6rem;
+  }
 `;
 
 const Agency = styled.div`
   font-size: 1rem;
   color: #aaa;
+
+  @media (max-width: 1024px) {
+    font-size: 0.95rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 0.7rem;
+  }
+  @media (max-width: 320px) {
+    font-size: 0.6rem;
+  }
 `;

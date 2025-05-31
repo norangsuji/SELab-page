@@ -162,17 +162,21 @@ const ProjectBox = styled.div`
 
   @media (max-width: 1024px) {
     gap: 0.8rem;
+    padding: 0rem 4rem;
   }
 
   @media (max-width: 768px) {
     gap: 0.6rem;
+    padding: 0rem 2.5rem;
   }
 
   @media (max-width: 480px) {
     gap: 0.4rem;
+    padding: 0rem 1.2rem;
   }
 
   @media (max-width: 320px) {
     gap: 0.2rem;
+    padding: 0rem 1rem;
   }
 `;
