@@ -55,12 +55,13 @@ const Card = styled.div`
 
   @media (max-width: 480px) {
     padding: 1rem 2rem;
-    padding: 1.2rem;
+    height: 11rem;
   }
 
   @media (max-width: 320px) {
     width: 16rem;
-    padding: 0.5rem 1rem;
+    height: 10rem;
+    padding: 0rem 1rem;
   }
 `;
 

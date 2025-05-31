@@ -115,15 +115,19 @@ const Container = styled.div`
   gap: 3rem;
 
   @media (max-width: 1024px) {
-    padding: 0.3rem 8rem 9rem 8rem;
-    gap: 2.3rem;
+    padding: 0.5rem 10rem 10rem 10rem;
+    gap: 2.5rem;
   }
   @media (max-width: 768px) {
-    padding: 0.3rem 5rem 6rem 5rem;
+    padding: 0.3rem 6rem 7rem 6rem;
     gap: 2rem;
   }
   @media (max-width: 480px) {
-    padding: 0.2rem 3rem 4rem 3rem;
+    padding: 0.2rem 3rem 5rem 3rem;
+    gap: 1.5rem;
+  }
+  @media (max-width: 320px) {
+    padding: 0.1rem 1.5rem 3rem 1.5rem;
     gap: 1rem;
   }
 `;
@@ -135,12 +139,41 @@ const TitleBox = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 1rem;
+
+  @media (max-width: 1024px) {
+    gap: 0.8rem;
+  }
+
+  @media (max-width: 768px) {
+    gap: 0.6rem;
+  }
+
+  @media (max-width: 480px) {
+    gap: 0.4rem;
+  }
+
+  @media (max-width: 320px) {
+    gap: 0.2rem;
+  }
 `;
 
 const Title = styled.div`
   font-size: 3rem;
   font-weight: bold;
   color: #f5f5f5;
+
+  @media (max-width: 1024px) {
+    font-size: 2.6rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 2.2rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+  }
+  @media (max-width: 320px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const Description = styled.div`
@@ -148,6 +181,19 @@ const Description = styled.div`
   color: #f5f5f5;
   text-align: center;
   max-width: 800px;
+
+  @media (max-width: 1024px) {
+    font-size: 1.1rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+  }
+  @media (max-width: 320px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const AchievementBox = styled.div`
@@ -157,6 +203,19 @@ const AchievementBox = styled.div`
   justify-content: center;
   align-items: center;
   gap: 2rem;
+
+  @media (max-width: 1024px) {
+    gap: 1.8rem;
+  }
+  @media (max-width: 768px) {
+    gap: 1.5rem;
+  }
+  @media (max-width: 480px) {
+    gap: 1.2rem;
+  }
+  @media (max-width: 320px) {
+    gap: 1rem;
+  }
 `;
 
 const ControlRow = styled.div`
@@ -165,7 +224,18 @@ const ControlRow = styled.div`
   justify-content: space-between;
   gap: 5rem;
 
+  @media (max-width: 1024px) {
+    gap: 4rem;
+  }
   @media (max-width: 768px) {
+    gap: 2rem;
+  }
+  @media (max-width: 480px) {
     flex-direction: column;
+    gap: 0.4rem;
+  }
+  @media (max-width: 320px) {
+    flex-direction: column;
+    gap: 0.8rem;
   }
 `;

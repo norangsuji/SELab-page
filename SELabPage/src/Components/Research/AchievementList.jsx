@@ -52,16 +52,51 @@ const ListBox = styled.div`
   flex-direction: column;
   padding: 0 1rem;
   gap: 1rem;
+
+  @media (max-width: 1024px) {
+    padding: 0 0.9rem;
+    gap: 0.9rem;
+  }
+  @media (max-width: 768px) {
+    padding: 0 0.8rem;
+    gap: 0.9rem;
+  }
+  @media (max-width: 480px) {
+    padding: 0 0.7rem;
+    gap: 0.5rem;
+  }
+  @media (max-width: 320px) {
+    padding: 0 0.5rem;
+    gap: 0.2rem;
+  }
 `;
 
 const Item = styled.div`
   border-left: 0.2rem solid #f5f5f5;
   padding-left: 1rem;
-  height: 5.5rem;
+  height: 6rem;
   display: flex;
   flex-direction: column;
-  justify-content: center; // 세로 정렬
+  justify-content: center;
   gap: 0.3rem;
+
+  @media (max-width: 1024px) {
+    padding-left: 0.9rem;
+    height: 5.8rem;
+  }
+  @media (max-width: 768px) {
+    padding-left: 0.8rem;
+    height: 5.5rem;
+  }
+  @media (max-width: 480px) {
+    height: auto;
+    padding: 0.5rem;
+    border-left: none;
+    border-bottom: 0.1rem solid #f5f5f56f;
+  }
+  @media (max-width: 320px) {
+    padding: 0.3rem;
+  }
 `;
 
 const Title = styled.div`
@@ -69,11 +104,37 @@ const Title = styled.div`
   font-size: 1.2rem;
   color: white;
   margin-bottom: 0.2rem;
+
+  @media (max-width: 1024px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 0.7rem;
+  }
+  @media (max-width: 320px) {
+    font-size: 0.6rem;
+  }
 `;
 
 const Meta = styled.div`
   font-size: 0.9rem;
   color: #ccc;
+
+  @media (max-width: 1024px) {
+    font-size: 0.85rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
+  }
+  @media (max-width: 320px) {
+    font-size: 0.7rem;
+  }
 `;
 
 const Highlight = styled.span`
@@ -82,4 +143,11 @@ const Highlight = styled.span`
   color: #1e1e1e;
   border-radius: 0.2rem;
   padding: 0 0.2rem;
+
+  @media (max-width: 768px) {
+    padding: 0 0.15rem;
+  }
+  @media (max-width: 480px) {
+    padding: 0 0.1rem;
+  }
 `;

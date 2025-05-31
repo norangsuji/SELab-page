@@ -63,20 +63,33 @@ export default function Category({ category, setCategory }) {
 }
 
 const Container = styled.div`
-  position: relative; // DropdownWrapper의 absolute 위치 기준
+  position: relative;
   width: 35rem;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    width: 30rem;
+  }
+  @media (max-width: 768px) {
+    width: 25rem;
+  }
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+  @media (max-width: 320px) {
+    width: 100%;
+  }
 `;
 
 const DropdownWrapper = styled.div`
   display: flex;
   flex-direction: column;
   border: 1px solid ${({ selected }) => (selected ? "#02f798" : "#f5f5f5")};
-  border-radius: 2rem; /* ✅ SearchBox와 동일 */
-  position: absolute; // 부모 기준으로 absolute
+  border-radius: 2rem;
+  position: absolute;
   z-index: 10;
   top: 0;
   overflow: hidden;
@@ -91,9 +104,24 @@ const DropdownWrapper = styled.div`
   cursor: pointer;
   width: 100%;
   height: ${({ isOpen }) => (isOpen ? "auto" : "3rem")};
+
   &:hover {
     color: #00ff99;
     border: 1px solid #00ff99;
+  }
+
+  @media (max-width: 1024px) {
+    height: ${({ isOpen }) => (isOpen ? "auto" : "2.8rem")};
+  }
+  @media (max-width: 768px) {
+    height: ${({ isOpen }) => (isOpen ? "auto" : "2.6rem")};
+  }
+  @media (max-width: 480px) {
+    height: ${({ isOpen }) => (isOpen ? "auto" : "2.4rem")};
+    position: relative;
+  }
+  @media (max-width: 320px) {
+    height: ${({ isOpen }) => (isOpen ? "auto" : "2.2rem")};
   }
 `;
 
@@ -103,11 +131,41 @@ const DropdownToggle = styled.div`
   justify-content: space-between;
   color: #f5f5f5;
   font-weight: 400;
-  height: 3rem; /* ✅ SearchBox와 동일하게 맞춤 */
-  padding: 0 2.5rem; /* ✅ 내부 여백도 맞춰서 통일감 있게 */
+  height: 3rem;
+  padding: 0 2.5rem;
 
   span {
     white-space: nowrap;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 1024px) {
+    height: 2.8rem;
+    padding: 0 2rem;
+    span {
+      font-size: 0.95rem;
+    }
+  }
+  @media (max-width: 768px) {
+    height: 2.6rem;
+    padding: 0 1.5rem;
+    span {
+      font-size: 0.9rem;
+    }
+  }
+  @media (max-width: 480px) {
+    height: 2.4rem;
+    padding: 0 1.2rem;
+    span {
+      font-size: 0.85rem;
+    }
+  }
+  @media (max-width: 320px) {
+    padding: 0 1rem;
+    height: 2rem;
+    span {
+      font-size: 0.6rem;
+    }
   }
 `;
 
@@ -123,8 +181,26 @@ const DropdownItem = styled.li`
   color: ${({ active }) => (active ? "#00ff99" : "#f5f5f5")};
   font-weight: ${({ active }) => (active ? "bold" : "normal")};
   white-space: nowrap;
+  font-size: 1rem;
 
   &:hover {
     color: #00ff99;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 0.5rem 2rem 0.8rem 2rem;
+    font-size: 0.95rem;
+  }
+  @media (max-width: 768px) {
+    padding: 0.5rem 1.5rem 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  @media (max-width: 480px) {
+    padding: 0.4rem 1.2rem 0.6rem 1.2rem;
+    font-size: 0.85rem;
+  }
+  @media (max-width: 320px) {
+    padding: 0.3rem 1rem 0.5rem 1rem;
+    font-size: 0.8rem;
   }
 `;
