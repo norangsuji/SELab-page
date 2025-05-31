@@ -71,6 +71,19 @@ export default function AlumnisList({ alumnis }) {
 
 const YearBox = styled.div`
   margin-bottom: 3rem;
+
+  @media (max-width: 1024px) {
+    margin-bottom: 2rem;
+  }
+  @media (max-width: 768px) {
+    margin-bottom: 1.5rem;
+  }
+  @media (max-width: 480px) {
+    margin-bottom: 1rem;
+  }
+  @media (max-width: 320px) {
+    margin-bottom: 0.7rem;
+  }
 `;
 
 const YearTitle = styled.h2`
@@ -80,11 +93,28 @@ const YearTitle = styled.h2`
   font-size: 2.2rem;
   font-weight: 700;
   color: #fff;
+
+  @media (max-width: 1024px) {
+    font-size: 2rem;
+    gap: 0.7rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+    gap: 0.5rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    gap: 0.3rem;
+  }
+  @media (max-width: 320px) {
+    font-size: 0.7rem;
+    gap: 0.1rem;
+  }
 `;
 
 const Line = styled.div`
   flex: 1;
-  height: 1px;
+  height: 0.0625rem;
   background-color: #666;
 `;
 
@@ -101,24 +131,61 @@ const ListItem = styled.div`
   justify-content: space-between;
   font-size: 1rem;
   color: #eee;
+
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0.3rem;
+  }
 `;
 
 const PositionLabel = styled.div`
   font-weight: 700;
   font-size: 1.2rem;
   color: #f5f5f5;
-  min-width: 4rem;
+  white-space: nowrap;
+
+  @media (max-width: 1024px) {
+    font-size: 1.1rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 0.7rem;
+  }
+  @media (max-width: 320px) {
+    font-size: 0.5rem;
+  }
 `;
 
 const Divider = styled.div`
   flex: 1;
-  height: 1px;
+  height: 0.0625rem;
   background-color: #444;
   margin: 0 1rem;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
 `;
 
 const Name = styled.div`
   white-space: nowrap;
   font-size: 1.2rem;
   text-align: right;
+
+  @media (max-width: 1024px) {
+    font-size: 1.1rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 0.7rem;
+  }
+  @media (max-width: 320px) {
+    font-size: 0.5rem;
+  }
 `;

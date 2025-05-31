@@ -55,6 +55,22 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media (max-width: 1024px) {
+    padding: 0.7rem 10rem 12rem 10rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.7rem 8rem 10rem 8rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.7rem 4rem 8rem 4rem;
+  }
+
+  @media (max-width: 320px) {
+    padding: 0.5rem 2.5rem 6rem 2.5rem;
+  }
 `;
 
 const TitleBox = styled.div`
@@ -67,14 +83,58 @@ const TitleBox = styled.div`
 const Title = styled.h1`
   font-size: 3rem;
   color: #f5f5f5;
+
+  @media (max-width: 1024px) {
+    font-size: 2.6rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2.2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const Description = styled.div`
   font-size: 1.2rem;
   color: #ccc;
+
+  @media (max-width: 1024px) {
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 0.85rem;
+  }
 `;
 
 const AlumnisBox = styled.div`
   width: 100%;
   margin-top: 3rem;
+
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 320px) {
+    margin-top: 1rem;
+  }
 `;
