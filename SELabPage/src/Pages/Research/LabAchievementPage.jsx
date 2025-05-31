@@ -5,6 +5,7 @@ import Search from "../../Components/Research/Search";
 import Category from "../../Components/Research/Category";
 import Pagination from "../../Components/Research/Pagination";
 import AchievementList from "../../Components/Research/AchievementList";
+import Footer from "../../Components/Default/Footer";
 
 const CATEGORY_STATUS_MAP = {
   "International Journals": "IJ",
@@ -97,6 +98,7 @@ function LabAchievementPage() {
           <Pagination current={page} setPage={setPage} total={totalPages} />
         </AchievementBox>
       </Container>
+      <Footer />
     </>
   );
 }
@@ -107,7 +109,7 @@ export default LabAchievementPage;
 
 const Container = styled.div`
   width: 100%;
-  padding: 0.7rem 15rem 16rem 15rem;
+  padding: 0.7rem 15rem 10rem 15rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,20 +117,23 @@ const Container = styled.div`
   gap: 3rem;
 
   @media (max-width: 1024px) {
-    padding: 0.5rem 10rem 10rem 10rem;
-    gap: 2.5rem;
+    padding: 0.3rem 8rem 5rem 8rem;
+    gap: 2.3rem;
   }
+
   @media (max-width: 768px) {
-    padding: 0.3rem 6rem 7rem 6rem;
+    padding: 0.3rem 5rem 6rem 5rem;
     gap: 2rem;
   }
+
   @media (max-width: 480px) {
-    padding: 0.2rem 3rem 5rem 3rem;
-    gap: 1.5rem;
-  }
-  @media (max-width: 320px) {
-    padding: 0.1rem 1.5rem 3rem 1.5rem;
+    padding: 0.2rem 3rem 3rem 3rem;
     gap: 1rem;
+  }
+
+  @media (max-width: 320px) {
+    padding: 0.1rem 2rem 3rem 2rem;
+    gap: 0.5rem;
   }
 `;
 

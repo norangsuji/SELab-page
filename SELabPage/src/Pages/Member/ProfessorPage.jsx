@@ -1,12 +1,77 @@
 import { Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import Navbar from "../../Components/Default/NavBar";
+import Footer from "../../Components/Default/Footer";
 
 // ✅ 드라이브 이미지 링크
 //const professorImageUrl = "https://drive.google.com/uc?export=view&id=1D0mQ6PE07eeu9dGvN2BPfnfP4lsOAFYj";
 const professorImageUrl = "/Images/professor2.png";
 
 function ProfessorPage() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchProfessor = async () => {
+      const res = await fetch(
+        "https://docs.google.com/spreadsheets/d/1hlC9yX2rlqQsiIbqKKA-MYI7BD1fRmemm6G5YMENSO4/gviz/tq?tqx=out:json&sheet=AboutProfessor"
+      );
+      const text = await res.text();
+      const json = JSON.parse(text.substring(47).slice(0, -2));
+
+      const formatDate = (raw) => {
+        if (!raw) return "";
+
+        // ✅ 숫자만 들어온 경우 (연도만): ex) 2015
+        if (typeof raw === "number") {
+          return `${raw}`;
+        }
+
+        // ✅ 문자열로 들어온 경우
+        if (typeof raw === "string") {
+          // "2015", "2020-1", "2020-01-01" 등등
+          const parts = raw.split("-").map((p) => p.padStart(2, "0"));
+
+          if (parts.length === 1) return parts[0]; // 연도만
+          if (parts.length === 2) return `${parts[0]}-${parts[1]}`;
+          if (parts.length === 3) return `${parts[0]}-${parts[1]}-${parts[2]}`;
+        }
+
+        // ✅ Date 객체 처리
+        const date = new Date(raw);
+        if (isNaN(date)) return "";
+
+        const yyyy = date.getFullYear();
+        const mm = String(date.getMonth() + 1).padStart(2, "0");
+        const dd = String(date.getDate()).padStart(2, "0");
+
+        if (dd === "01" && mm === "01") return `${yyyy}`;
+        if (dd === "01") return `${yyyy}-${mm}`;
+        return `${yyyy}-${mm}-${dd}`;
+      };
+
+      const entries = json.table.rows.map((row) => {
+        const cells = row.c;
+        return {
+          title: cells[0]?.v || "",
+          start: formatDate(cells[1]?.f || cells[1]?.v),
+          finish: formatDate(cells[2]?.f || cells[2]?.v),
+        };
+      });
+
+      // 🔽 최신 날짜 먼저 정렬
+      entries.sort((a, b) => {
+        const dateA = new Date(a.start);
+        const dateB = new Date(b.start);
+        return dateB - dateA;
+      });
+
+      setData(entries);
+    };
+
+    fetchProfessor();
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -28,13 +93,7 @@ function ProfessorPage() {
             <InfoText>서울시립대학교 공과대학 컴퓨터과학과</InfoText>
             <ul>
               <li>
-                <strong>Lab :</strong> 000호
-              </li>
-              <li>
-                <strong>Lab Tel :</strong> 000-0000-0000
-              </li>
-              <li>
-                <strong>Office :</strong> 000호
+                <strong>Office :</strong> 서울시립대학교 정보기술관 307호
               </li>
               <li>
                 <strong>Office Tel :</strong> 02-6490-2451
@@ -53,22 +112,21 @@ function ProfessorPage() {
 
             <SectionTitle>Experience</SectionTitle>
             <ul>
-              <li>
-                <strong>2024.01~2024.12</strong> 약력내용 1줄내외 약력내용 1줄내외
-              </li>
-              <li>
-                <strong>2024.01~2024.12</strong> 약력내용 1줄내외 약력내용 1줄내외
-              </li>
-              <li>
-                <strong>2024.01~2024.12</strong> 약력내용 1줄내외 약력내용 1줄내외
-              </li>
-              <li>
-                <strong>2024.01~2024.12</strong> 약력내용 1줄내외 약력내용 1줄내외
-              </li>
+              {data.map((item, idx) => (
+                <li key={idx}>
+                  {item.start && item.finish ? (
+                    <strong>
+                      {item.start} ~ {item.finish}
+                    </strong>
+                  ) : null}{" "}
+                  {item.title}
+                </li>
+              ))}
             </ul>
           </RightColumn>
         </InformationBox>
       </Container>
+      <Footer />
     </>
   );
 }
@@ -79,7 +137,7 @@ export default ProfessorPage;
 
 const Container = styled.div`
   width: 100%;
-  padding: 0.7rem 15rem 16rem 15rem;
+  padding: 0.7rem 15rem 10rem 15rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,22 +145,22 @@ const Container = styled.div`
   gap: 3rem;
 
   @media (max-width: 1024px) {
-    padding: 0.3rem 8rem 9rem 8rem;
+    padding: 0.3rem 8rem 5rem 8rem;
     gap: 2.3rem;
   }
 
   @media (max-width: 768px) {
-    padding: 0.3rem 6rem 6rem 6rem;
+    padding: 0.3rem 5rem 6rem 5rem;
     gap: 2rem;
   }
 
   @media (max-width: 480px) {
-    padding: 0.2rem 4rem 4rem 4rem;
+    padding: 0.2rem 3rem 3rem 3rem;
     gap: 1rem;
   }
 
   @media (max-width: 320px) {
-    padding: 0.1rem 3rem 3rem 3rem;
+    padding: 0.1rem 2rem 3rem 2rem;
     gap: 0.5rem;
   }
 `;
@@ -212,25 +270,21 @@ const LeftColumn = styled.div`
   flex-direction: column;
 
   img {
-    width: 300px;
+    width: 20rem;
     height: auto;
     border-radius: 0.5rem;
     object-fit: cover;
 
     @media (max-width: 1024px) {
-      width: 250px;
-    }
-
-    @media (max-width: 768px) {
-      width: 200px;
+      width: 15rem;
     }
 
     @media (max-width: 480px) {
-      width: 160px;
+      width: 13rem;
     }
 
     @media (max-width: 320px) {
-      width: 130px;
+      width: 10rem;
     }
   }
 `;
@@ -240,6 +294,10 @@ const Intro = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 0.5rem;
+
+  @media (max-width: 768px) {
+    align-items: center;
+  }
 
   & .name {
     font-size: 1.5rem;
@@ -370,17 +428,17 @@ const InfoText = styled.div`
 `;
 
 const SectionTitle = styled.div`
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: #f5f5f5;
   margin-top: 1rem;
 
   @media (max-width: 1024px) {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   @media (max-width: 768px) {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
   @media (max-width: 480px) {

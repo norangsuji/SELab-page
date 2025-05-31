@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import Navbar from "../Components/Default/NavBar";
 import BannerSlide from "../Components/Main/BannerSlide";
 import LabNotice from "../Components/Main/LabNotice";
+import Footer from "../Components/Default/Footer";
 
 function MainPage() {
   return (
@@ -28,6 +29,7 @@ function MainPage() {
         </IntroBox>
         <LabNotice />
       </Container>
+      <Footer />
     </>
   );
 }
@@ -38,7 +40,7 @@ export default MainPage;
 
 const Container = styled.div`
   width: 100%;
-  padding: 0.7rem 15rem 16rem 15rem;
+  padding: 0.7rem 15rem 10rem 15rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +48,7 @@ const Container = styled.div`
   gap: 3rem;
 
   @media (max-width: 1024px) {
-    padding: 0.3rem 8rem 9rem 8rem;
+    padding: 0.3rem 8rem 5rem 8rem;
     gap: 2.3rem;
   }
 
@@ -56,7 +58,7 @@ const Container = styled.div`
   }
 
   @media (max-width: 480px) {
-    padding: 0.2rem 3rem 4rem 3rem;
+    padding: 0.2rem 3rem 3rem 3rem;
     gap: 1rem;
   }
 

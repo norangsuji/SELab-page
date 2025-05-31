@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import Navbar from "../../Components/Default/NavBar";
 import AlumnisList from "../../Components/Member/AlumnisList";
+import Footer from "../../Components/Default/Footer";
 
 function AlumnisPage() {
   const [data, setData] = useState([]);
@@ -41,6 +42,7 @@ function AlumnisPage() {
           <AlumnisList alumnis={data} />
         </AlumnisBox>
       </Container>
+      <Footer />
     </>
   );
 }
@@ -48,28 +50,34 @@ function AlumnisPage() {
 export default AlumnisPage;
 
 // ===== 스타일 =====
+
 const Container = styled.div`
   width: 100%;
-  padding: 0.7rem 15rem 16rem 15rem;
+  padding: 0.7rem 15rem 10rem 15rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 3rem;
 
   @media (max-width: 1024px) {
-    padding: 0.7rem 10rem 12rem 10rem;
+    padding: 0.3rem 8rem 5rem 8rem;
+    gap: 2.3rem;
   }
 
   @media (max-width: 768px) {
-    padding: 0.7rem 8rem 10rem 8rem;
+    padding: 0.3rem 5rem 6rem 5rem;
+    gap: 2rem;
   }
 
   @media (max-width: 480px) {
-    padding: 0.7rem 4rem 8rem 4rem;
+    padding: 0.2rem 3rem 3rem 3rem;
+    gap: 1rem;
   }
 
   @media (max-width: 320px) {
-    padding: 0.5rem 2.5rem 6rem 2.5rem;
+    padding: 0.1rem 2rem 3rem 2rem;
+    gap: 0.5rem;
   }
 `;
 
