@@ -37,18 +37,18 @@ function ProfessorPage() {
                 <strong>Office :</strong> 000호
               </li>
               <li>
-                <strong>Office Tel :</strong> 000-0000-0000
+                <strong>Office Tel :</strong> 02-6490-2451
               </li>
               <li>
-                <strong>E-mail :</strong> 00000000@uos.ac.kr
+                <strong>E-mail :</strong> bjlee@uos.ac.kr
               </li>
             </ul>
 
             <SectionTitle>Education</SectionTitle>
             <ul>
-              <li>Ph.D in Electrical and Computer Engineering, Seoul National University, Aug. 2020</li>
-              <li>M.S. in Biosystems Engineering, Seoul National University, Aug. 2015</li>
-              <li>B.S. in Electrical and Computer Engineering, University of Seoul, Feb. 2013</li>
+              <li>Doctorate in Engineering, 2002.2 Seoul National University, Computer Engineering</li>
+              <li>Master of Science, 1998.2 Seoul National University Computer Science</li>
+              <li>Bachelor of Science, 1990.2 Seoul National University, Computational Statistics</li>
             </ul>
 
             <SectionTitle>Experience</SectionTitle>
