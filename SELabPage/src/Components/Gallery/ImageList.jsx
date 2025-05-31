@@ -53,7 +53,7 @@ export default function ImageList() {
           <CardGrid>
             {items.map((item, idx) => (
               <Card key={idx}>
-                <ImageWithFallback id={item.id} />
+                <ImageWithFallback id={item.id} onClick={() => alert(item.title)} />
                 <CardText>
                   <Title onClick={() => alert(item.title)}>{item.title}</Title>
                 </CardText>
@@ -67,7 +67,7 @@ export default function ImageList() {
 }
 
 // ✅ 이미지 확장자 fallback 처리용 컴포넌트
-function ImageWithFallback({ id }) {
+function ImageWithFallback({ id, onClick }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleError = () => {
@@ -83,9 +83,7 @@ function ImageWithFallback({ id }) {
       src={currentSrc}
       alt="gallery image"
       onError={handleError}
-      onLoad={() => {
-        // 성공 시 currentIndex 유지
-      }}
+      onClick={onClick} // ✅ 여기에 클릭 이벤트 props 연결
     />
   );
 }
@@ -211,6 +209,7 @@ const Title = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  cursor: pointer;
 
   @media (max-width: 1024px) {
     font-size: 1rem;
