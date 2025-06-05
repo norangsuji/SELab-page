@@ -44,9 +44,9 @@ export default function AlumnisList({ alumnis }) {
         <Line />
       </YearTitle>
       {[
-        { key: "Ph.D Student", label: "Ph.D Student" },
-        { key: "M.S Student", label: "Master Student" },
-        { key: "Undergraduated Intern", label: "Undergraduated Intern" },
+        { key: "Ph.D", label: "Ph.D" },
+        { key: "M.S", label: "M.S" },
+        { key: "Bachelor", label: "Bachelor" },
       ].map(({ key, label }) => {
         const filtered = list.filter((a) => a.position === key);
         if (filtered.length === 0) return null;
