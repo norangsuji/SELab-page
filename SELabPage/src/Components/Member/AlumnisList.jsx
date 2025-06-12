@@ -15,12 +15,17 @@ function formatName(name) {
 
 export default function AlumnisList({ alumnis }) {
   const grouped = {};
-
   const unspecified = [];
+  const bachelors = [];
 
   alumnis.forEach((item) => {
     const rawYear = item.date ? String(item.date).slice(0, 4) : null;
     const year = /^\d{4}$/.test(rawYear) ? rawYear : null;
+
+    if (item.position === "Bachelor") {
+      bachelors.push(item); // Bachelor는 따로 수집
+      return;
+    }
 
     if (year) {
       if (!grouped[year]) grouped[year] = [];
@@ -37,34 +42,56 @@ export default function AlumnisList({ alumnis }) {
     sortedGroups.push(["Unspecified", unspecified]);
   }
 
-  return sortedGroups.map(([year, list]) => (
-    <YearBox key={year}>
-      <YearTitle>
-        <span>{year === "Unspecified" ? "Unspecified Year" : year}</span>
-        <Line />
-      </YearTitle>
-      {[
-        { key: "Ph.D", label: "Ph.D" },
-        { key: "M.S", label: "M.S" },
-        { key: "Bachelor", label: "Bachelor" },
-      ].map(({ key, label }) => {
-        const filtered = list.filter((a) => a.position === key);
-        if (filtered.length === 0) return null;
+  return (
+    <>
+      {/* 🎓 연도별 Ph.D / M.S 출력 */}
+      {sortedGroups.map(([year, list]) => (
+        <YearBox key={year}>
+          <YearTitle>
+            <span>{year === "Unspecified" ? "Unspecified Year" : year}</span>
+            <Line />
+          </YearTitle>
 
-        return (
-          <PositionList key={key}>
-            {filtered.map((item, idx) => (
+          {["Ph.D", "M.S"].map((key) => {
+            const filtered = list.filter((a) => a.position === key);
+            if (filtered.length === 0) return null;
+
+            return (
+              <PositionList key={key}>
+                {filtered.map((item, idx) => (
+                  <ListItem key={idx}>
+                    <PositionLabel>{key}</PositionLabel>
+                    <Divider />
+                    <Name>{formatName(item.name)}</Name>
+                  </ListItem>
+                ))}
+              </PositionList>
+            );
+          })}
+        </YearBox>
+      ))}
+
+      {/* 🎒 전체 Bachelor 출력 */}
+      {bachelors.length > 0 && (
+        <YearBox>
+          <YearTitle>
+            <Line />
+            <span>Bachelor</span>
+            <Line />
+          </YearTitle>
+          <PositionList>
+            {bachelors.map((item, idx) => (
               <ListItem key={idx}>
-                <PositionLabel>{label}</PositionLabel>
+                <PositionLabel>Bachelor</PositionLabel>
                 <Divider />
                 <Name>{formatName(item.name)}</Name>
               </ListItem>
             ))}
           </PositionList>
-        );
-      })}
-    </YearBox>
-  ));
+        </YearBox>
+      )}
+    </>
+  );
 }
 
 // ===== 스타일 =====
