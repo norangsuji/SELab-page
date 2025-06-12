@@ -119,7 +119,6 @@ function ProfessorPage() {
               {data.map((item, idx) => (
                 <li key={idx}>
                   {item.displayDate && <strong>{item.displayDate}</strong>} {item.title}
-                  {item.title}
                 </li>
               ))}
             </ul>
