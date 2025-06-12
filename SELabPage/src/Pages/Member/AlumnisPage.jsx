@@ -35,7 +35,7 @@ function AlumnisPage() {
       <Navbar />
       <Container>
         <TitleBox>
-          <Title>Alumnis</Title>
+          <Title>Alumni</Title>
           <Description>ISELab의 졸업생입니다</Description>
         </TitleBox>
         <AlumnisBox>
