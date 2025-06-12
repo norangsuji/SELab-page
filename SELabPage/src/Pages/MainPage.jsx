@@ -377,26 +377,27 @@ const ProfileCard = styled.div`
 
   @media (max-width: 1024px) {
     border-radius: 0.5rem;
+    width: 14rem;
     gap: 0.5rem;
-    padding: 1.8rem 1.3rem;
+    padding: 1.4rem 1.3rem;
   }
   @media (max-width: 768px) {
     border-radius: 0.5rem;
     gap: 0.4rem;
-    padding: 1.5rem 1rem;
-    width: 13rem;
+    padding: 1.3rem 1rem;
+    width: 12rem;
   }
   @media (max-width: 480px) {
     border-radius: 0.5rem;
     gap: 0.4rem;
     padding: 1.2rem 0.8rem;
-    width: 13rem;
+    width: 11rem;
   }
   @media (max-width: 320px) {
     border-radius: 0.5rem;
     gap: 0.2rem;
     padding: 1rem 0.5rem;
-    width: 12rem;
+    width: 10rem;
   }
 `;
 
