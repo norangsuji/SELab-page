@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import Navbar from "../Components/Default/NavBar";
 import BannerSlide from "../Components/Main/BannerSlide";
@@ -10,6 +11,8 @@ import Footer from "../Components/Default/Footer";
 function MainPage() {
   const isMobile = useMediaQuery({ maxWidth: 480 });
   const isTab = useMediaQuery({ maxWidth: 768 });
+  const navigate = useNavigate();
+
   return (
     <>
       <Navbar />
@@ -35,8 +38,8 @@ function MainPage() {
               <CardText>TEL: 02-6490-2451</CardText>
               <CardText>Office: 정보기술관 3층 307호</CardText>
               <ButtonRow>
-                <CardButton to="/professors">Intro +</CardButton>
-                <CardButton to="/lab-achievements">Activities +</CardButton>
+                <CardButton onClick={() => navigate("/professors")}>Intro +</CardButton>
+                <CardButton onClick={() => navigate("/lab-achievements")}>Activities +</CardButton>
               </ButtonRow>
             </ProfileCard>
           </LeftCard>
