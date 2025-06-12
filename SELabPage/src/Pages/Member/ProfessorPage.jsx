@@ -88,7 +88,7 @@ function ProfessorPage() {
           <LeftColumn>
             <img src={professorImageUrl} alt="교수님 프로필" />
             <Intro>
-              <span className="name">Byung Jung Lee</span>
+              <span className="name">Byung Jeong Lee</span>
               <span className="position">Professor</span>
             </Intro>
           </LeftColumn>
