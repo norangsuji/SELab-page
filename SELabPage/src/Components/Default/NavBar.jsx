@@ -180,7 +180,7 @@ export default function Navbar() {
   return (
     <NavWrapper>
       <NavbarContainer>
-        <Logo to="/">ISELab</Logo>
+        <Logo to="/">ISE Lab.</Logo>
         <NavMenu>
           <NavItem
             label="Research"
