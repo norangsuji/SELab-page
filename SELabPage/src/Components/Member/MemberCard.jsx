@@ -35,8 +35,8 @@ const Card = styled.div`
   justify-content: flex-start;
   gap: 1.2rem;
   padding: 2rem 3rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 0.1rem solid rgba(255, 255, 255, 0.15);
+  background: #ffffff50;
+  border: 0.08rem solid #1e1e1e;
   border-radius: 1rem;
   height: 15rem;
   width: 100%;
@@ -102,7 +102,7 @@ const Info = styled.div`
 const Name = styled.div`
   font-weight: 700;
   font-size: 1.5rem;
-  color: #fff;
+  color: #1e1e1e;
 
   @media (max-width: 1024px) {
     font-size: 1.4rem;
@@ -123,7 +123,7 @@ const Name = styled.div`
 
 const Position = styled.div`
   font-size: 0.9rem;
-  color: #ccc;
+  color: #1e1e1e;
   margin: 0.2rem 0;
 
   @media (max-width: 1024px) {
@@ -145,7 +145,7 @@ const Position = styled.div`
 
 const Label = styled.div`
   font-size: 0.8rem;
-  color: #aaa;
+  color: #1e1e1e;
 
   @media (max-width: 1024px) {
     font-size: 0.75rem;
@@ -166,7 +166,7 @@ const Label = styled.div`
 
 const Email = styled.div`
   font-size: 1rem;
-  color: #ccc;
+  color: #1e1e1e;
 
   @media (max-width: 1024px) {
     font-size: 0.95rem;

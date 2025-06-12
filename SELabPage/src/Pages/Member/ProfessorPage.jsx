@@ -50,16 +50,20 @@ function ProfessorPage() {
         return `${yyyy}-${mm}-${dd}`;
       };
 
-      const entries = json.table.rows.map((row) => {
+      const entries = json.table.rows.slice(1).map((row) => {
         const cells = row.c;
+        const start = formatDate(cells[1]?.f || cells[1]?.v);
+        const finish = formatDate(cells[2]?.f || cells[2]?.v);
+
         return {
           title: cells[0]?.v || "",
-          start: formatDate(cells[1]?.f || cells[1]?.v),
-          finish: formatDate(cells[2]?.f || cells[2]?.v),
+          start,
+          finish,
+          displayDate: start === finish || !finish ? start : `${start} ~ ${finish}`, // ✅ 날짜 표시 규칙
         };
       });
 
-      // 🔽 최신 날짜 먼저 정렬
+      // ✅ 최신순 정렬 (start 기준)
       entries.sort((a, b) => {
         const dateA = new Date(a.start);
         const dateB = new Date(b.start);
@@ -114,11 +118,7 @@ function ProfessorPage() {
             <ul>
               {data.map((item, idx) => (
                 <li key={idx}>
-                  {item.start && item.finish ? (
-                    <strong>
-                      {item.start} ~ {item.finish}
-                    </strong>
-                  ) : null}{" "}
+                  {item.displayDate && <strong>{item.displayDate}</strong>} {item.title}
                   {item.title}
                 </li>
               ))}
@@ -137,7 +137,7 @@ export default ProfessorPage;
 
 const Container = styled.div`
   width: 100%;
-  padding: 0.7rem 15rem 10rem 15rem;
+  padding: 3rem 15rem 10rem 15rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -145,22 +145,22 @@ const Container = styled.div`
   gap: 3rem;
 
   @media (max-width: 1024px) {
-    padding: 0.3rem 8rem 5rem 8rem;
+    padding: 2rem 8rem 5rem 8rem;
     gap: 2.3rem;
   }
 
   @media (max-width: 768px) {
-    padding: 0.3rem 5rem 6rem 5rem;
+    padding: 1.5rem 5rem 6rem 5rem;
     gap: 2rem;
   }
 
   @media (max-width: 480px) {
-    padding: 0.2rem 3rem 3rem 3rem;
+    padding: 0.8rem 3rem 3rem 3rem;
     gap: 1rem;
   }
 
   @media (max-width: 320px) {
-    padding: 0.1rem 2rem 3rem 2rem;
+    padding: 0.5rem 2rem 3rem 2rem;
     gap: 0.5rem;
   }
 `;
@@ -193,7 +193,7 @@ const TitleBox = styled.div`
 const Title = styled.div`
   font-size: 3rem;
   font-weight: bold;
-  color: #f5f5f5;
+  color: #1e1e1e;
 
   @media (max-width: 1024px) {
     font-size: 2rem;
@@ -214,7 +214,7 @@ const Title = styled.div`
 
 const Description = styled.div`
   font-size: 1.2rem;
-  color: #f5f5f5;
+  color: #1e1e1e;
   text-align: center;
   max-width: 800px;
 
@@ -302,7 +302,7 @@ const Intro = styled.div`
   & .name {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #f5f5f5;
+    color: #1e1e1e;
 
     @media (max-width: 1024px) {
       font-size: 1.3rem;
@@ -321,7 +321,7 @@ const Intro = styled.div`
   & .position {
     font-size: 1rem;
     font-weight: 700;
-    color: #f5f5f5;
+    color: #1e1e1e;
 
     @media (max-width: 1024px) {
       font-size: 0.9rem;
@@ -344,7 +344,7 @@ const RightColumn = styled.div`
   align-items: flex-start;
   flex-direction: column;
   gap: 0.5rem;
-  color: #f5f5f5;
+  color: #1e1e1e;
   line-height: 1.6;
 
   @media (max-width: 1024px) {
@@ -394,7 +394,7 @@ const RightColumn = styled.div`
 const InfoTitle = styled.div`
   font-size: 1.3rem;
   font-weight: 700;
-  color: #f5f5f5;
+  color: #1e1e1e;
 
   @media (max-width: 1024px) {
     font-size: 1.1rem;
@@ -411,7 +411,7 @@ const InfoTitle = styled.div`
 
 const InfoText = styled.div`
   font-size: 1rem;
-  color: #f5f5f5;
+  color: #1e1e1e;
   margin-bottom: 0.5rem;
 
   @media (max-width: 1024px) {
@@ -430,7 +430,7 @@ const InfoText = styled.div`
 const SectionTitle = styled.div`
   font-size: 1.2rem;
   font-weight: 700;
-  color: #f5f5f5;
+  color: #1e1e1e;
   margin-top: 1rem;
 
   @media (max-width: 1024px) {

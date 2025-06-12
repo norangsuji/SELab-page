@@ -47,7 +47,7 @@ const YearTitle = styled.h2`
   gap: 1rem;
   font-size: 2.2rem;
   font-weight: bold;
-  color: #fff;
+  color: #1e1e1e;
 
   @media (max-width: 1024px) {
     gap: 1.8rem;
@@ -116,7 +116,7 @@ const FirstRow = styled.div`
 const ProjectTitle = styled.div`
   font-size: 1.5rem;
   font-weight: 600;
-  color: #fff;
+  color: #1e1e1e;
 
   @media (max-width: 1024px) {
     font-size: 1.4rem;
@@ -134,7 +134,7 @@ const ProjectTitle = styled.div`
 
 const Period = styled.div`
   font-size: 1rem;
-  color: #bbb;
+  color: #525252ab;
 
   @media (max-width: 1024px) {
     font-size: 0.95rem;
@@ -152,7 +152,7 @@ const Period = styled.div`
 
 const Agency = styled.div`
   font-size: 1rem;
-  color: #aaa;
+  color: #525252ab;
 
   @media (max-width: 1024px) {
     font-size: 0.95rem;

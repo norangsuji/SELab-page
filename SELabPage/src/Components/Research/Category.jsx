@@ -87,7 +87,7 @@ const Container = styled.div`
 const DropdownWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid ${({ selected }) => (selected ? "#02f798" : "#f5f5f5")};
+  border: 1px solid ${({ selected }) => (selected ? "#00603a" : "#1E1E1E")};
   border-radius: 2rem;
   position: absolute;
   z-index: 10;
@@ -106,8 +106,8 @@ const DropdownWrapper = styled.div`
   height: ${({ isOpen }) => (isOpen ? "auto" : "3rem")};
 
   &:hover {
-    color: #00ff99;
-    border: 1px solid #00ff99;
+    color: #00603a;
+    border: 1px solid #00603a;
   }
 
   @media (max-width: 1024px) {
@@ -129,7 +129,7 @@ const DropdownToggle = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #f5f5f5;
+  color: #1e1e1e;
   font-weight: 400;
   height: 3rem;
   padding: 0 2.5rem;
@@ -178,13 +178,13 @@ const DropdownList = styled.ul`
 
 const DropdownItem = styled.li`
   padding: 0.6rem 2.5rem 1rem 2.5rem;
-  color: ${({ active }) => (active ? "#00ff99" : "#f5f5f5")};
+  color: ${({ active }) => (active ? "#00603a" : "#1E1E1E")};
   font-weight: ${({ active }) => (active ? "bold" : "normal")};
   white-space: nowrap;
   font-size: 1rem;
 
   &:hover {
-    color: #00ff99;
+    color: #00603a;
   }
 
   @media (max-width: 1024px) {

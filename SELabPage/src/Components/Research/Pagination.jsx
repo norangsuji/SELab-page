@@ -23,9 +23,9 @@ const PaginationBox = styled.div`
 
   button {
     padding: 0.5rem 1rem;
-    border: 1px solid #666;
+    border: 1px solid #1e1e1e76;
     background: transparent;
-    color: #fff;
+    color: #1e1e1e;
     border-radius: 10rem;
     cursor: pointer;
 
@@ -35,17 +35,17 @@ const PaginationBox = styled.div`
     }
 
     :hover {
-      color: #00ff99;
-      border: 1px solid #00ff99;
+      color: #00603a;
+      border: 1px solid #00603a;
     }
   }
 `;
 
 const PageIndicator = styled.span`
   font-weight: bold;
-  color: white;
+  color: #1e1e1ed4;
 `;
 
 const Total = styled.span`
-  color: rgba(255, 255, 255, 0.5); // white 50%
+  color: #1e1e1e82; // white 50%
 `;

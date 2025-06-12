@@ -157,7 +157,7 @@ const Wrapper = styled.div`
 const Title = styled.h2`
   font-size: 2.5rem;
   font-weight: 800;
-  color: #f5f5f5;
+  color: #1e1e1e;
   margin-bottom: 2rem;
   text-align: center;
 
@@ -212,8 +212,8 @@ const NoticeItem = styled.li`
 
 const IconWrapper = styled.div`
   flex-shrink: 0;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: #1e1e1e10;
+  border: 1px solid #1e1e1e50;
   border-radius: 50%;
   padding: 0.7rem;
   display: flex;
@@ -245,7 +245,7 @@ const IconWrapper = styled.div`
 const Divider = styled.div`
   flex-grow: 1;
   height: 0.5px;
-  background-color: #f5f5f5;
+  background-color: #1e1e1e90;
   margin: 0 0.5rem;
 
   @media (max-width: 1024px) {
@@ -268,7 +268,7 @@ const Divider = styled.div`
 const NoticeText = styled.div`
   font-size: 1.3rem;
   line-height: 2rem;
-  color: #f5f5f5;
+  color: #1e1e1e;
   font-weight: 500;
   margin-bottom: 0.5rem;
   text-align: left;
@@ -301,5 +301,5 @@ const NoticeText = styled.div`
 const Date = styled.span`
   margin-right: 0.5rem;
   font-weight: 400;
-  color: #ccc;
+  color: #1e1e1e90;
 `;

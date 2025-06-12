@@ -99,7 +99,7 @@ const YearTitle = styled.h2`
   gap: 1rem;
   font-size: 2.2rem;
   font-weight: bold;
-  color: #fff;
+  color: #1e1e1e;
 
   @media (max-width: 1024px) {
     gap: 1.8rem;
@@ -122,7 +122,7 @@ const YearTitle = styled.h2`
 const Line = styled.div`
   flex: 1;
   height: 1px;
-  background-color: #666;
+  background-color: #1e1e1e80;
 `;
 
 const CardGrid = styled.div`
@@ -159,7 +159,7 @@ const Card = styled.div`
   flex-direction: column;
   width: 100%; /* ≒ 160px */
   gap: 0.3rem;
-  color: #fff;
+  color: #1e1e1e;
 
   @media (max-width: 1024px) {
   }
@@ -179,7 +179,6 @@ const Thumbnail = styled.img`
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 0.4rem;
-  background-color: #888;
   cursor: pointer;
 
   @media (max-width: 1024px) {

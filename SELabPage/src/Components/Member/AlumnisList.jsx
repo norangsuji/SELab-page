@@ -92,7 +92,7 @@ const YearTitle = styled.h2`
   gap: 1rem;
   font-size: 2.2rem;
   font-weight: 700;
-  color: #fff;
+  color: #1e1e1e;
 
   @media (max-width: 1024px) {
     font-size: 2rem;
@@ -115,7 +115,7 @@ const YearTitle = styled.h2`
 const Line = styled.div`
   flex: 1;
   height: 0.0625rem;
-  background-color: #666;
+  background-color: #1e1e1e50;
 `;
 
 const PositionList = styled.div`
@@ -130,7 +130,7 @@ const ListItem = styled.div`
   align-items: center;
   justify-content: space-between;
   font-size: 1rem;
-  color: #eee;
+  color: #1e1e1e;
 
   @media (max-width: 480px) {
     display: flex;
@@ -143,7 +143,7 @@ const ListItem = styled.div`
 const PositionLabel = styled.div`
   font-weight: 700;
   font-size: 1.2rem;
-  color: #f5f5f5;
+  color: #1e1e1e;
   white-space: nowrap;
 
   @media (max-width: 1024px) {
@@ -163,7 +163,7 @@ const PositionLabel = styled.div`
 const Divider = styled.div`
   flex: 1;
   height: 0.0625rem;
-  background-color: #444;
+  background-color: #1e1e1e50;
   margin: 0 1rem;
 
   @media (max-width: 480px) {

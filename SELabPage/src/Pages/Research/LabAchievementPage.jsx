@@ -38,11 +38,18 @@ function LabAchievementPage() {
         const cells = row.c;
         return {
           title: cells[0]?.v || "",
-          category: cells[1]?.v || "", // ✅ 이게 'IC', 'IJ' 같은 약어임!
+          category: cells[1]?.v || "",
           info: cells[2]?.v || "",
           contributors: (cells[3]?.v || "").split(", "),
-          date: cells[4]?.v || "",
+          date: cells[4]?.v ? String(cells[4].v) : "", // 날짜 보정
         };
+      });
+
+      // 최신순 정렬
+      parsed.sort((a, b) => {
+        const d1 = new Date(a.date.length === 4 ? `${a.date}-01` : a.date);
+        const d2 = new Date(b.date.length === 4 ? `${b.date}-01` : b.date);
+        return d2 - d1;
       });
 
       setData(parsed);
@@ -60,7 +67,6 @@ function LabAchievementPage() {
       temp = temp.filter((item) => item.category === selectedCode);
     }
 
-    // 검색 필터
     if (keyword.trim() !== "") {
       const lowered = keyword.toLowerCase();
       temp = temp.filter(
@@ -75,7 +81,6 @@ function LabAchievementPage() {
     setPage(1);
   }, [selectedCategory, keyword, data]);
 
-  // 페이지에 맞는 데이터만 추출
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentPageData = filtered.slice(startIndex, endIndex);
@@ -109,7 +114,7 @@ export default LabAchievementPage;
 
 const Container = styled.div`
   width: 100%;
-  padding: 0.7rem 15rem 10rem 15rem;
+  padding: 3rem 15rem 10rem 15rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,22 +122,22 @@ const Container = styled.div`
   gap: 3rem;
 
   @media (max-width: 1024px) {
-    padding: 0.3rem 8rem 5rem 8rem;
+    padding: 2rem 8rem 5rem 8rem;
     gap: 2.3rem;
   }
 
   @media (max-width: 768px) {
-    padding: 0.3rem 5rem 6rem 5rem;
+    padding: 1.5rem 5rem 6rem 5rem;
     gap: 2rem;
   }
 
   @media (max-width: 480px) {
-    padding: 0.2rem 3rem 3rem 3rem;
+    padding: 0.8rem 3rem 3rem 3rem;
     gap: 1rem;
   }
 
   @media (max-width: 320px) {
-    padding: 0.1rem 2rem 3rem 2rem;
+    padding: 0.5rem 2rem 3rem 2rem;
     gap: 0.5rem;
   }
 `;
@@ -165,7 +170,7 @@ const TitleBox = styled.div`
 const Title = styled.div`
   font-size: 3rem;
   font-weight: bold;
-  color: #f5f5f5;
+  color: #1e1e1e;
 
   @media (max-width: 1024px) {
     font-size: 2.6rem;
@@ -183,7 +188,7 @@ const Title = styled.div`
 
 const Description = styled.div`
   font-size: 1.2rem;
-  color: #f5f5f5;
+  color: #1e1e1e;
   text-align: center;
   max-width: 800px;
 

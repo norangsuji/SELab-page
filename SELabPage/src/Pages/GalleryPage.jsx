@@ -28,7 +28,7 @@ export default GalleryPage;
 
 const Container = styled.div`
   width: 100%;
-  padding: 0.7rem 15rem 10rem 15rem;
+  padding: 3rem 15rem 10rem 15rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,22 +36,22 @@ const Container = styled.div`
   gap: 3rem;
 
   @media (max-width: 1024px) {
-    padding: 0.3rem 8rem 5rem 8rem;
+    padding: 2rem 8rem 5rem 8rem;
     gap: 2.3rem;
   }
 
   @media (max-width: 768px) {
-    padding: 0.3rem 5rem 6rem 5rem;
+    padding: 1.5rem 5rem 6rem 5rem;
     gap: 2rem;
   }
 
   @media (max-width: 480px) {
-    padding: 0.2rem 3rem 3rem 3rem;
+    padding: 0.8rem 3rem 3rem 3rem;
     gap: 1rem;
   }
 
   @media (max-width: 320px) {
-    padding: 0.1rem 2rem 3rem 2rem;
+    padding: 0.5rem 2rem 3rem 2rem;
     gap: 0.5rem;
   }
 `;
@@ -83,7 +83,7 @@ const TitleBox = styled.div`
 
 const Description = styled.div`
   font-size: 1.2rem;
-  color: #f5f5f5;
+  color: #1e1e1e;
   text-align: center;
   max-width: 800px;
 
@@ -107,7 +107,7 @@ const Description = styled.div`
 const Title = styled.div`
   font-size: 3rem;
   font-weight: bold;
-  color: #f5f5f5;
+  color: #1e1e1e;
 
   @media (max-width: 1024px) {
     font-size: 2rem;

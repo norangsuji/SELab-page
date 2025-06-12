@@ -35,7 +35,7 @@ const SliderWrapper = styled.div`
   width: 100%;
   overflow: hidden;
   position: relative;
-  border-radius: 1vh;
+  background-color: #1e1e1e;
   height: 45vh; /* ✅ 슬라이드 높이 지정 */
 
   @media (max-width: 1024px) {

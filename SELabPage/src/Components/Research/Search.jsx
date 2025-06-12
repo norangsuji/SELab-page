@@ -19,7 +19,7 @@ const SearchBox = styled.div`
   justify-content: flex-start;
   width: 100%;
   height: 3rem;
-  border: 1px solid ${({ active }) => (active ? "#00ff99" : "#f5f5f5")};
+  border: 1px solid ${({ active }) => (active ? "#00603a" : "#1e1e1e")};
   background: linear-gradient(
     122.72deg,
     rgba(79, 79, 79, 0.1) 1.74%,
@@ -32,7 +32,7 @@ const SearchBox = styled.div`
   padding: 0rem 0.4rem 0rem 1rem;
 
   :hover {
-    border: 1px solid #00ff99;
+    border: 1px solid #00603a;
   }
 
   @media (max-width: 1024px) {
@@ -57,13 +57,13 @@ const Input = styled.input`
   flex: 1;
   background: transparent;
   border: none;
-  color: #f5f5f5;
+  color: #1e1e1e;
   font-size: 1rem;
   font-weight: 400;
   outline: none;
 
   &::placeholder {
-    color: #ccccccc0;
+    color: #1e1e1e;
   }
 
   @media (max-width: 1024px) {
@@ -83,7 +83,7 @@ const Input = styled.input`
 const SearchButton = styled.button`
   background: transparent;
   border: none;
-  color: ${({ active }) => (active ? "#00ff99" : "#f5f5f5")};
+  color: ${({ active }) => (active ? "#00603a" : "#1e1e1e")};
   cursor: pointer;
   line-height: 2.5rem; /* ✅ 이 부분이 문제! */
   display: flex;
@@ -91,10 +91,10 @@ const SearchButton = styled.button`
   justify-content: center;
   padding: 0 0.8rem 0rem 0rem;
   margin: 0.8rem;
-  border-right: 1px solid #f5f5f586;
+  border-right: 1px solid #f5f5f532;
 
   :hover {
-    color: #00ff99;
+    color: #00603a;
   }
 
   @media (max-width: 1024px) {

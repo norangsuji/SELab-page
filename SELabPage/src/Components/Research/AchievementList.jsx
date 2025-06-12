@@ -72,7 +72,7 @@ const ListBox = styled.div`
 `;
 
 const Item = styled.div`
-  border-left: 0.2rem solid #f5f5f5;
+  border-left: 0.2rem solid #1e1e1e;
   padding-left: 1rem;
   height: 6rem;
   display: flex;
@@ -92,7 +92,7 @@ const Item = styled.div`
     height: auto;
     padding: 0.5rem;
     border-left: none;
-    border-bottom: 0.1rem solid #f5f5f56f;
+    border-bottom: 0.1rem solid #1e1e1e;
   }
   @media (max-width: 320px) {
     padding: 0.3rem;
@@ -102,7 +102,7 @@ const Item = styled.div`
 const Title = styled.div`
   font-weight: 700;
   font-size: 1.2rem;
-  color: white;
+  color: #1e1e1e;
   margin-bottom: 0.2rem;
 
   @media (max-width: 1024px) {
@@ -121,7 +121,7 @@ const Title = styled.div`
 
 const Meta = styled.div`
   font-size: 0.9rem;
-  color: #ccc;
+  color: #1e1e1e80;
 
   @media (max-width: 1024px) {
     font-size: 0.85rem;
@@ -138,9 +138,9 @@ const Meta = styled.div`
 `;
 
 const Highlight = styled.span`
-  background-color: #02f799da;
+  background-color: #00603a;
   font-weight: bold;
-  color: #1e1e1e;
+  color: #f5f5f5;
   border-radius: 0.2rem;
   padding: 0 0.2rem;
 
