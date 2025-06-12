@@ -15,7 +15,7 @@ function MainPage() {
       <Navbar />
       <TitleBox>
         <FirstTitle>
-          Intelligent Software
+          Intelligent Software{!isMobile && "\u00A0"}
           {isMobile && <br />}
           Engineering Lab
         </FirstTitle>
