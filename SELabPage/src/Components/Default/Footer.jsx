@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <FooterWrapper>
       <FooterContent>
-        <LogoSection>ISELab</LogoSection>
+        <LogoSection>ISELab.</LogoSection>
         <Section>
           <InfoBlock>
             <BlockTitle>Lab Contacts</BlockTitle>
