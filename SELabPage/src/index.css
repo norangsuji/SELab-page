@@ -6,8 +6,8 @@
   font-weight: 400;
   line-height: 1.5;
 
-  color: #f5f5f5;
-  background-color: #1e1e1e;
+  color: #1e1e1e;
+  background-color: #f5f5f5;
 
   margin: 0;
   padding: 0;
@@ -27,9 +27,9 @@ body,
   padding: 0;
   width: 100vw;
   min-height: 100vh;
-  background-color: #1e1e1e;
+  background-color: #f5f5f5;
   overflow: auto; /* 스크롤 가능하게 유지 */
-  color: #f5f5f5;
+  color: #1e1e1e;
   font-family: "Pretendard", sans-serif;
   box-sizing: border-box;
   scrollbar-width: none; /* Firefox */
@@ -56,12 +56,12 @@ body::-webkit-scrollbar {
 
 /* 링크 스타일 */
 a {
-  color: #f5f5f5;
+  color: #1e1e1e;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 a:hover {
-  color: #41fb5a;
+  color: #4cff64;
 }
 
 /* 버튼 스타일 */
