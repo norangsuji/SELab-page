@@ -86,6 +86,10 @@ function LabAchievementPage() {
   const currentPageData = filtered.slice(startIndex, endIndex);
   const totalPages = Math.ceil(filtered.length / itemsPerPage);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [page]);
+
   return (
     <>
       <Navbar />
