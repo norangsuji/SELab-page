@@ -112,16 +112,20 @@ const DropdownWrapper = styled.div`
 
   @media (max-width: 1024px) {
     height: ${({ isOpen }) => (isOpen ? "auto" : "2.8rem")};
+    border-radius: 1.9rem;
   }
   @media (max-width: 768px) {
     height: ${({ isOpen }) => (isOpen ? "auto" : "2.6rem")};
+    border-radius: 1.8rem;
   }
   @media (max-width: 480px) {
     height: ${({ isOpen }) => (isOpen ? "auto" : "2.4rem")};
     position: relative;
+    border-radius: 1.5rem;
   }
   @media (max-width: 320px) {
     height: ${({ isOpen }) => (isOpen ? "auto" : "2.2rem")};
+    border-radius: 1rem;
   }
 `;
 
@@ -164,7 +168,7 @@ const DropdownToggle = styled.div`
     padding: 0 1rem;
     height: 2rem;
     span {
-      font-size: 0.6rem;
+      font-size: 0.8rem;
     }
   }
 `;
