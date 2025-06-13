@@ -36,9 +36,18 @@ export default function AchievementList({ data, keyword }) {
                 : item.contributors?.join(", ") || "Unknown",
               keyword
             )}
-            {" / "}
-            {highlightText(item.info, keyword)}
-            {item.date ? `, ${formatDate(item.date)}` : ""}
+            {item.info ? (
+              <>
+                {" / "}
+                {highlightText(item.info, keyword)}
+              </>
+            ) : null}
+            {item.date ? (
+              <>
+                {item.info ? ", " : " / "}
+                {formatDate(item.date)}
+              </>
+            ) : null}
           </Meta>
         </Item>
       ))}
