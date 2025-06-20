@@ -45,11 +45,30 @@ function LabAchievementPage() {
         };
       });
 
-      // 최신순 정렬
+      const parseDate = (dateStr) => {
+        if (!dateStr) return new Date("1900-01");
+
+        const start = dateStr.split("~")[0].trim(); // 앞 날짜만 사용
+
+        // yyyy-mm (정상)
+        if (/^\d{4}-\d{2}$/.test(start)) return new Date(start);
+
+        // yyyy-m (한 자리 월 → 두 자리로 보정)
+        if (/^\d{4}-\d{1}$/.test(start)) {
+          const [y, m] = start.split("-");
+          return new Date(`${y}-${m.padStart(2, "0")}`);
+        }
+
+        // yyyy (보정해서 1월로 처리)
+        if (/^\d{4}$/.test(start)) return new Date(`${start}-01`);
+
+        return new Date("1900-01");
+      };
+
       parsed.sort((a, b) => {
-        const d1 = new Date(a.date.length === 4 ? `${a.date}-01` : a.date);
-        const d2 = new Date(b.date.length === 4 ? `${b.date}-01` : b.date);
-        return d2 - d1;
+        const d1 = parseDate(a.date);
+        const d2 = parseDate(b.date);
+        return d2 - d1; // 최신순 정렬
       });
 
       setData(parsed);
