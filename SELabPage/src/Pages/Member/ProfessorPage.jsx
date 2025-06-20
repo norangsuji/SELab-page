@@ -114,6 +114,11 @@ function ProfessorPage() {
               <li>Bachelor of Science, 1990.2 Seoul National University, Computational Statistics</li>
             </ul>
 
+            <SectionTitle>Career</SectionTitle>
+            <ul>
+              <li>1990.1 - 1998.1 SK하이닉스(구:현대전자) SW개발부 연구원</li>
+            </ul>
+
             <SectionTitle>Experience</SectionTitle>
             <ul>
               {data.map((item, idx) => (
