@@ -35,7 +35,7 @@ const Card = styled.div`
   justify-content: flex-start;
   gap: 1.2rem;
   padding: 2rem 3rem;
-  background: #ffffff50;
+  background: #ffffff80;
   border: 0.08rem solid #1e1e1e;
   border-radius: 1rem;
   height: 15rem;
@@ -43,47 +43,46 @@ const Card = styled.div`
 
   @media (max-width: 1024px) {
     width: 100%;
-    height: 14rem;
+    height: 12rem;
   }
 
   @media (max-width: 768px) {
     width: 100%;
-    height: 13rem;
+    height: 10rem;
     gap: 1rem;
     padding: 1.5rem;
   }
 
   @media (max-width: 480px) {
-    padding: 1rem 2rem;
-    height: 11rem;
+    padding: 1rem 1.5rem;
+    width: 90%;
+    height: 9rem;
+    gap: 0.6rem;
   }
 
   @media (max-width: 320px) {
-    width: 16rem;
-    height: 10rem;
     padding: 0rem 1rem;
+    gap: 0.4rem;
   }
 `;
 
 const Image = styled.img`
-  width: 6rem;
-  height: 8rem;
+  width: 8rem;
+  height: 10rem;
   object-fit: cover;
   object-position: 50% 50%;
   border-radius: 0.3rem;
 
   @media (max-width: 1024px) {
-    width: 4.7rem;
-    height: 5.9rem;
+    width: 5rem;
+    height: 7rem;
   }
 
   @media (max-width: 768px) {
-    width: 4.375rem;
-    height: 5.625rem;
   }
 
   @media (max-width: 480px) {
-    width: 4.7rem;
+    width: 5rem;
     height: 6.2rem;
   }
 
@@ -109,15 +108,16 @@ const Name = styled.div`
   }
 
   @media (max-width: 768px) {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   @media (max-width: 480px) {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    line-height: 1.2;
   }
 
   @media (max-width: 320px) {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 `;
 
@@ -173,14 +173,14 @@ const Email = styled.div`
   }
 
   @media (max-width: 768px) {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
   }
 
   @media (max-width: 480px) {
-    font-size: 0.85rem;
+    font-size: 0.7rem;
   }
 
   @media (max-width: 320px) {
-    font-size: 0.8rem;
+    font-size: 0.65rem;
   }
 `;
