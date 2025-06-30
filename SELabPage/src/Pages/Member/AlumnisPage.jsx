@@ -21,6 +21,7 @@ function AlumnisPage() {
           name: cells[0]?.v || "",
           position: cells[1]?.v || "",
           date: cells[2]?.v || "",
+          career: cells[3]?.v || "",
         };
       });
 

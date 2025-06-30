@@ -63,6 +63,7 @@ export default function AlumnisList({ alumnis }) {
                     <PositionLabel>{key}</PositionLabel>
                     <Divider />
                     <Name>{formatName(item.name)}</Name>
+                    {item.career && <Career>{item.career}</Career>}
                   </ListItem>
                 ))}
               </PositionList>
@@ -85,6 +86,7 @@ export default function AlumnisList({ alumnis }) {
                 <PositionLabel>Bachelor</PositionLabel>
                 <Divider />
                 <Name>{formatName(item.name)}</Name>
+                {item.career && <Career>{item.career}</Career>}
               </ListItem>
             ))}
           </PositionList>
@@ -202,6 +204,7 @@ const Name = styled.div`
   white-space: nowrap;
   font-size: 1.2rem;
   text-align: right;
+  font-weight: 600;
 
   @media (max-width: 1024px) {
     font-size: 1.1rem;
@@ -214,5 +217,29 @@ const Name = styled.div`
   }
   @media (max-width: 320px) {
     font-size: 0.5rem;
+  }
+`;
+
+const Career = styled.div`
+  white-space: nowrap;
+  font-size: 1.2rem;
+  text-align: right;
+  margin-left: 0.5rem;
+
+  @media (max-width: 1024px) {
+    font-size: 1.1rem;
+    margin-left: 0.4rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    margin-left: 0.3rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 0.7rem;
+    margin-left: 0.1rem;
+  }
+  @media (max-width: 320px) {
+    font-size: 0.5rem;
+    margin-left: 0rem;
   }
 `;
