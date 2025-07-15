@@ -115,7 +115,7 @@ function LabAchievementPage() {
       <Container>
         <TitleBox>
           <Title>Lab Achievement</Title>
-          <Description>ISELab의 성과들입니다</Description>
+          <Description>ISE Lab. 성과</Description>
         </TitleBox>
         <AchievementBox>
           <ControlRow>

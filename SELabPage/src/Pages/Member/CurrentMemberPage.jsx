@@ -61,7 +61,7 @@ function CurrentMemberPage() {
       <Container>
         <TitleBox>
           <Title>Current Lab Members</Title>
-          <Description>ISELab의 연구원입니다</Description>
+          <Description>ISE Lab. 연구원</Description>
         </TitleBox>
         <MemberBox>
           {members.map((member, idx) => (

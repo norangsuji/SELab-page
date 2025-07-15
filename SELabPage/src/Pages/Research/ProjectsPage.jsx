@@ -38,7 +38,7 @@ function ProjectsPage() {
       <Container>
         <TitleBox>
           <Title>Project</Title>
-          <Description>ISELab에서 진행하는 프로젝트들입니다</Description>
+          <Description>ISE Lab. 프로젝트</Description>
         </TitleBox>
         <ProjectBox>
           <ProjectList projects={dummyProjects} />

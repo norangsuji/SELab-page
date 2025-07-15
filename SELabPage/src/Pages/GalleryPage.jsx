@@ -11,7 +11,7 @@ function GalleryPage() {
       <Container>
         <TitleBox>
           <Title>Gallery</Title>
-          <Description>ISELab의 앨범입니다</Description>
+          <Description>ISE Lab. 사진앨범</Description>
         </TitleBox>
         <GalleryBox>
           <ImageList />

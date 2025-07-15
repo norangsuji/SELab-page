@@ -37,7 +37,7 @@ function AlumnisPage() {
       <Container>
         <TitleBox>
           <Title>Alumni</Title>
-          <Description>ISELab의 졸업생입니다</Description>
+          <Description>ISE Lab. 졸업생</Description>
         </TitleBox>
         <AlumnisBox>
           <AlumnisList alumnis={data} />

@@ -82,7 +82,7 @@ function ProfessorPage() {
       <Container>
         <TitleBox>
           <Title>Professor</Title>
-          <Description>ISELab의 지도교수입니다</Description>
+          <Description>ISE Lab. 지도교수</Description>
         </TitleBox>
         <InformationBox>
           <LeftColumn>
