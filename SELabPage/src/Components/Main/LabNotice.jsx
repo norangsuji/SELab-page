@@ -1,5 +1,6 @@
 // Components/Main/LabNotice.jsx
 import styled from "@emotion/styled";
+import { useEffect, useState } from "react";
 import { FaUserPlus, FaFolderOpen, FaFileAlt } from "react-icons/fa";
 
 // ✅ 아이콘 자체를 반응형으로 스타일링
@@ -106,19 +107,6 @@ const MessageSpan = styled.span`
   }
 `;
 
-const notices = [
-  { type: "member", date: "2025-05-12", message: "새로운 학부연구생 김세현이 추가되었습니다." },
-  { type: "member", date: "2025-05-12", message: "새로운 학부연구생 박도현이 추가되었습니다." },
-  { type: "member", date: "2025-03-17", message: "새로운 학부연구생 유영호가 추가되었습니다." },
-  { type: "member", date: "2025-03-04", message: "새로운 대학원생 홍수지가 추가되었습니다." },
-  {
-    type: "achievement",
-    date: "2025-02-01",
-    message: "개인화된 AI 챗봇을 위한 지식 그래프 기반 에피소드 기억을 사용한 RAG 시스템",
-  },
-];
-
-// ✅ 아이콘 매핑에 styled icon 사용
 const iconMap = {
   member: <StyledUserIcon />,
   project: <StyledFolderIcon />,
@@ -126,13 +114,28 @@ const iconMap = {
 };
 
 export default function LabNotice() {
+  const [notices, setNotices] = useState([]);
+
+  useEffect(() => {
+    fetch("https://opensheet.elk.sh/1hlC9yX2rlqQsiIbqKKA-MYI7BD1fRmemm6G5YMENSO4/Notice")
+      .then((res) => res.json())
+      .then((data) => {
+        const parsed = data.map((row) => ({
+          type: row.category.trim(),
+          date: row.date.trim(),
+          message: row.title.trim(),
+        }));
+        setNotices(parsed);
+      });
+  }, []);
+
   return (
     <Wrapper>
       <Title>Lab Notice</Title>
       <List>
         {notices.map((item, index) => (
           <NoticeItem key={index}>
-            <IconWrapper>{iconMap[item.type]}</IconWrapper>
+            <IconWrapper>{iconMap[item.type] || <StyledFileIcon />}</IconWrapper>
             <Divider />
             <NoticeText>
               <Date>{item.date}</Date>

@@ -1,4 +1,3 @@
-import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import MemberCard from "../../Components/Member/MemberCard";
 import styled from "@emotion/styled";
@@ -7,47 +6,21 @@ import Footer from "../../Components/Default/Footer";
 
 function CurrentMemberPage() {
   const [members, setMembers] = useState([]);
-  const defaultImage = "/Images/NO_IMAGE.png"; // 기본 이미지 경로
-  const checkImageExists = (url) => {
-    return new Promise((resolve) => {
-      const img = new Image();
-      img.src = url;
-      img.onload = () => resolve(true);
-      img.onerror = () => resolve(false);
-    });
-  };
+  const defaultImage = "/Images/NO_IMAGE.png";
 
   useEffect(() => {
     const fetchMembers = async () => {
-      const res = await fetch(
-        "https://docs.google.com/spreadsheets/d/1hlC9yX2rlqQsiIbqKKA-MYI7BD1fRmemm6G5YMENSO4/gviz/tq?tqx=out:json"
-      );
-      const text = await res.text();
-      const json = JSON.parse(text.substring(47).slice(0, -2));
+      const res = await fetch("https://opensheet.vercel.app/1hlC9yX2rlqQsiIbqKKA-MYI7BD1fRmemm6G5YMENSO4/Members");
+      const data = await res.json();
 
-      const members = await Promise.all(
-        json.table.rows.slice(1).map(async (row) => {
-          const cells = row.c;
-          const studentId = cells[3]?.v || "";
-
-          // 이미지 경로 시도: PNG 우선, 없으면 JPG
-          const pngPath = `/Images/${studentId}.png`;
-          const jpgPath = `/Images/${studentId}.jpg`;
-
-          const resolvedImage = (await checkImageExists(pngPath))
-            ? pngPath
-            : (await checkImageExists(jpgPath))
-            ? jpgPath
-            : defaultImage;
-
-          return {
-            name: cells[0]?.v || "",
-            position: cells[1]?.v || "",
-            email: cells[2]?.v || "",
-            image: resolvedImage,
-          };
-        })
-      );
+      const members = data
+        .filter((row) => row.name && row.imageUrl) // 이름 & 이미지 있는 행만
+        .map((row) => ({
+          name: row.name,
+          position: row.position,
+          email: row.email,
+          image: row.imageUrl?.startsWith("https://") ? row.imageUrl : defaultImage,
+        }));
 
       setMembers(members);
     };

@@ -1,12 +1,8 @@
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
 
-// 확장자 후보 리스트
-const IMAGE_EXTENSIONS = ["png", "jpg", "jpeg", "JPG"];
+const SHEET_URL = "https://opensheet.elk.sh/1hlC9yX2rlqQsiIbqKKA-MYI7BD1fRmemm6G5YMENSO4/Gallery";
 const DEFAULT_IMAGE = "/Images/DefaultImage.png";
-
-const SHEET_URL =
-  "https://docs.google.com/spreadsheets/d/1hlC9yX2rlqQsiIbqKKA-MYI7BD1fRmemm6G5YMENSO4/gviz/tq?tqx=out:json&sheet=Gallery";
 
 export default function ImageList() {
   const [galleryData, setGalleryData] = useState([]);
@@ -14,14 +10,12 @@ export default function ImageList() {
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(SHEET_URL);
-      const text = await res.text();
-      const json = JSON.parse(text.substring(47).slice(0, -2));
-      const rows = json.table.rows.slice(1);
+      const data = await res.json();
 
-      const parsed = rows.map((row) => {
-        const title = row.c[0]?.v || "제목 없음";
-        const id = row.c[1]?.v || "";
-        return { title, id };
+      const parsed = data.map((row) => {
+        const title = row.title?.trim() || "제목 없음";
+        const imageUrl = row.imageUrl?.trim() || "";
+        return { title, imageUrl };
       });
 
       const grouped = {};
@@ -53,7 +47,16 @@ export default function ImageList() {
           <CardGrid>
             {items.map((item, idx) => (
               <Card key={idx}>
-                <ImageWithFallback id={item.id} onClick={() => alert(item.title)} />
+                <Thumbnail
+                  src={item.imageUrl || DEFAULT_IMAGE}
+                  alt="gallery image"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    console.warn("이미지 로딩 실패", item.imageUrl);
+                    e.target.src = DEFAULT_IMAGE;
+                  }}
+                  onClick={() => alert(item.title)}
+                />
                 <CardText>
                   <Title onClick={() => alert(item.title)}>{item.title}</Title>
                 </CardText>
@@ -63,28 +66,6 @@ export default function ImageList() {
         </YearSection>
       ))}
     </>
-  );
-}
-
-// ✅ 이미지 확장자 fallback 처리용 컴포넌트
-function ImageWithFallback({ id, onClick }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handleError = () => {
-    if (currentIndex < IMAGE_EXTENSIONS.length - 1) {
-      setCurrentIndex((prev) => prev + 1);
-    }
-  };
-
-  const currentSrc = `/Images/${id}.${IMAGE_EXTENSIONS[currentIndex]}`;
-
-  return (
-    <Thumbnail
-      src={currentSrc}
-      alt="gallery image"
-      onError={handleError}
-      onClick={onClick} // ✅ 여기에 클릭 이벤트 props 연결
-    />
   );
 }
 
