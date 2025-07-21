@@ -120,11 +120,29 @@ export default function LabNotice() {
     fetch("https://opensheet.elk.sh/1hlC9yX2rlqQsiIbqKKA-MYI7BD1fRmemm6G5YMENSO4/Notice")
       .then((res) => res.json())
       .then((data) => {
-        const parsed = data.map((row) => ({
-          type: row.category.trim(),
-          date: row.date.trim(),
-          message: row.title.trim(),
-        }));
+        const parsed = data
+          .map((row) => {
+            const rawDate = row.date?.trim() || "";
+            let dateObj = new window.Date(rawDate); // 혹시 몰라서 window.Date로도 확실하게!
+
+            if (isNaN(dateObj)) {
+              dateObj = new window.Date(Date.parse(rawDate));
+            }
+
+            return {
+              type: row.category?.trim(),
+              dateStr: rawDate, // date 대신 dateStr로 이름 변경! ✅
+              dateObj,
+              message: row.title?.trim(),
+            };
+          })
+          .sort((a, b) => b.dateObj - a.dateObj)
+          .map(({ type, dateStr, message }) => ({
+            type,
+            date: dateStr,
+            message,
+          }));
+
         setNotices(parsed);
       });
   }, []);
