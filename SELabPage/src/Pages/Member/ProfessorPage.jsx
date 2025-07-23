@@ -94,7 +94,7 @@ function ProfessorPage() {
           </LeftColumn>
           <RightColumn>
             <InfoTitle>이병정 교수</InfoTitle>
-            <InfoText>서울시립대학교 공과대학 컴퓨터과학과</InfoText>
+            <InfoText>서울시립대학교 공과대학 컴퓨터과학부</InfoText>
             <ul>
               <li>
                 <strong>Office :</strong> 서울시립대학교 정보기술관 307호
@@ -109,14 +109,15 @@ function ProfessorPage() {
 
             <SectionTitle>Education</SectionTitle>
             <ul>
-              <li>Doctorate in Engineering, 2002.2 Seoul National University, Computer Engineering</li>
-              <li>Master of Science, 1998.2 Seoul National University Computer Science</li>
-              <li>Bachelor of Science, 1990.2 Seoul National University, Computational Statistics</li>
+              <li>Ph.D., 2002.2 Seoul National University, Computer Science and Engineering</li>
+              <li>MS, 1998.2 Seoul National University, Computer Science</li>
+              <li>BS, 1990.2 Seoul National University, Computer Science and Statistics</li>
             </ul>
 
             <SectionTitle>Career</SectionTitle>
             <ul>
               <li>1990.1 - 1998.1 SK하이닉스(구:현대전자) SW개발부 연구원</li>
+              <li>2002.3 - 현재 서울시립대학교 컴퓨터과학부 교수</li>
             </ul>
 
             <SectionTitle>Experience</SectionTitle>
