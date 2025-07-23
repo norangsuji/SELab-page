@@ -196,7 +196,7 @@ export default function Navbar() {
             subItems={[
               { label: "Professor", to: "/professors" },
               { label: "Current Members", to: "/current-members" },
-              { label: "Alumnis", to: "/alumnis" },
+              { label: "Alumni", to: "/alumni" },
             ]}
           />
           <NavItem label="Gallery" to="/gallery" />
