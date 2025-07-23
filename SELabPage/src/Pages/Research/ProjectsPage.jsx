@@ -1,36 +1,35 @@
-import { Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import Navbar from "../../Components/Default/NavBar";
 import ProjectList from "../../Components/Research/ProjectList";
 import Footer from "../../Components/Default/Footer";
 
 function ProjectsPage() {
-  const dummyProjects = [
-    {
-      year: "2022",
-      title: "데이터 융합 인재 양성 사업",
-      period: "2022.09.01~2029.02.28",
-      agency: "과학기술정보통신부/원천기술개발사업",
-    },
-    {
-      year: "2020",
-      title: "딥러닝 알고리즘 기반 소프트웨어 버그 자동 정정 연구",
-      period: "2020.03.01~2023.02.28",
-      agency: "과학기술정보통신부/중견연구자지원사업",
-    },
-    {
-      year: "2020",
-      title: "진화론적 방법에 기반한 소프트웨어 버그 자동 정정 연구",
-      period: "2020.03.01~2023.02.28",
-      agency: "과학기술정보통신부/중견연구자지원사업",
-    },
-    {
-      year: "2014",
-      title: "상시 모니터링 연동 의미기반 테스트 지원 기술",
-      period: "2014.07.01~2019.06.30",
-      agency: "과학기술정보통신부/차세대정보표준기술개발사업",
-    },
-  ];
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const res = await fetch("https://opensheet.vercel.app/1hlC9yX2rlqQsiIbqKKA-MYI7BD1fRmemm6G5YMENSO4/Project");
+        const data = await res.json();
+
+        const formatted = data
+          .filter((p) => p.title && p.start && p.finish)
+          .map((p) => ({
+            year: p.start.split("-")[0],
+            title: p.title,
+            period: `${p.start}~${p.finish}`,
+            agency: p.agency || "정보 없음",
+          }));
+
+        setProjects(formatted);
+      } catch (err) {
+        console.error("📛 프로젝트 데이터를 불러오는데 실패했어요:", err);
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   return (
     <>
@@ -41,7 +40,7 @@ function ProjectsPage() {
           <Description>ISE Lab. 프로젝트</Description>
         </TitleBox>
         <ProjectBox>
-          <ProjectList projects={dummyProjects} />
+          <ProjectList projects={projects} />
         </ProjectBox>
       </Container>
       <Footer />
